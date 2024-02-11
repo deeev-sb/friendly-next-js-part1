@@ -1,3 +1,7 @@
+'use client'
+
+import {useRouter} from "next/navigation";
+
 type Props = {
   params: {
     location: string
@@ -6,6 +10,12 @@ type Props = {
 
 export default function Detail({params}: Props) {
   let name = ''
+
+  const router = useRouter();
+  const handleClick = () => {
+    router.push('/')
+  }
+
   switch (params.location){
     case 'seoul': name = '서울'; break;
     case 'newyork': name = '뉴욕'; break;
@@ -14,6 +24,7 @@ export default function Detail({params}: Props) {
   return (
     <>
       <h1>{name}의 3일 예보</h1>
+      <button onClick={handleClick}>Home</button>
     </>
   );
 }
