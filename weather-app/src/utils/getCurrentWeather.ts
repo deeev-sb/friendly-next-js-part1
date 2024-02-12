@@ -50,7 +50,8 @@ interface Condition {
 
 
 export const getCurrentWeather = async (location: string): Promise<Response> => {
-  const res = await fetch(`http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${location}&aqi=no`)
+  const res = await fetch(`http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${location}&aqi=no`,
+    {next: {tags: ['time']}})
 
   if (!res.ok) throw new Error('날씨 정보를 가져올 수 없습니다.')
 
