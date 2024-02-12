@@ -150,5 +150,7 @@ interface Condition3 {
 export const getForecast = async (location: string): Promise<Response> => {
   const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${location}&days=3&aqi=no&alerts=no`)
 
+  if (!res.ok) throw new Error('3일 예보 정보를 가져올 수 없습니다.')
+
   return res.json();
 }

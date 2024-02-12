@@ -12,10 +12,16 @@ export default async function Detail({params}: Props) {
 
   const res = await getForecast(params.location);
 
-  switch (params.location){
-    case 'seoul': name = '서울'; break;
-    case 'newyork': name = '뉴욕'; break;
-    case 'london': name = '런던'; break;
+  switch (params.location) {
+    case 'seoul':
+      name = '서울';
+      break;
+    case 'new-york':
+      name = '뉴욕';
+      break;
+    case 'london':
+      name = '런던';
+      break;
   }
   return (
     <>
@@ -23,9 +29,9 @@ export default async function Detail({params}: Props) {
       <HomeButton/>
       <ul>
         {res.forecast.forecastday.map(day => (
-          <li key={day.date}>
-            {day.date} / {day.day.avgtemp_c}
-          </li>
+            <li key={day.date}>
+              {day.date} / {day.day.avgtemp_c}
+            </li>
           )
         )}
       </ul>
