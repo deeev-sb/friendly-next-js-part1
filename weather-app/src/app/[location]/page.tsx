@@ -7,6 +7,13 @@ type Props = {
   }
 }
 
+export function generateMetadata({params}: Props) {
+  return {
+    title: `Weather App - ${params.location}`,
+    description: `${params.location} 날씨를 알려드립니다.`
+  }
+}
+
 export default async function Detail({params}: Props) {
   let name = ''
 
